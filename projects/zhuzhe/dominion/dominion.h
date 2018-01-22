@@ -128,4 +128,23 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
    1, others to 0 */
 
+int play_adventurer(int *drawntreasure, struct gameState *state, int *currentPlayer, int *cardDrawn, int *temphand, int *z);
+// The effect for playing the Adventurer card
+// Bug added for this function
+
+int play_smithy(int *currentPlayer, struct gameState *state, int *handPos);
+// The effect for playing the Smithy card
+// Bug added for this function
+
+int play_village(int *currentPlayer, struct gameState *state, int *handPos);
+// The effect for playing the Village card
+// Bug added for this function
+
+int play_remodel(int *currentPlayer, struct gameState *state, int *choice1, int *choice2, int *handPos);
+// The effect for playing the Remodel card
+
+int play_great_hall(int *currentPlayer, struct gameState *state, int *handPos);
+// The effect for playing the Great Hall card
+// Bug added for this function
+
 #endif
