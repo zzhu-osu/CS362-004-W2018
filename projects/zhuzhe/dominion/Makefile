@@ -1,5 +1,7 @@
 CFLAGS = -Wall -fpic --coverage -lm
 
+all: playdom player unitTests runtests
+
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
 
@@ -74,11 +76,11 @@ runtests:
 	./cardtest4 >> unittestresults.out
 	gcov -bf dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
+	rm -f *.gcda
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-all: playdom player unitTests
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out \
