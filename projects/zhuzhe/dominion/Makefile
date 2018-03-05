@@ -1,6 +1,6 @@
 CFLAGS = -Wall -fpic --coverage -lm
 
-all: playdom player randomTests runRandomTests
+all: playdom player randomTests runRandomTests unitTests runUnitTests
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
