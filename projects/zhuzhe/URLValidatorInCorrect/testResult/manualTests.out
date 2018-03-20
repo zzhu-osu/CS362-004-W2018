@@ -1,0 +1,151 @@
+testManualTest_2_SLASHES STARTS
+
+	http://www.amazon.com?x
+		Should be true; Test result: false
+		Error!
+
+	http://www.google.com////////pathQuery#Fragment
+		Should be false; Test result: false
+
+	http://www.co:65535//...?test=
+		Should be false; Test result: false
+
+	http:/co:65535//...?
+		Should be false; Test result: false
+
+	https://www.google.co:0//file1/file2?tr=fa&&rt=af
+		Should be true; Test result: false
+		Error!
+
+	http:///ca??test1
+		Should be false; Test result: false
+
+	http://WWW.AMAZON.com
+		Should be true; Test result: false
+		Error!
+
+testManualTest_2_SLASHES ENDS
+
+testManualTest_ALL_SCHEMES STARTS
+
+	http://www.amazon.com?x
+		Should be true; Test result: true
+
+	http://..ca./file1?tr=fa&&rt=af
+		Should be false; Test result: true
+		Error!
+
+	http://ez6TFMO5l.com%3F%7BXO%3F%26S%7D%3DV*lOxKJ%29Q%26n%3Dp-%2
+		Should be false; Test result: true
+		Error!
+
+	https://%%[test].ca,==/test/
+		Runtime error: java.lang.ExceptionInInitializerError
+
+	http://%%[test].ca,==/test/
+		Should be false; Test result: false
+
+	http://.ca.@test,+;==/test/
+		Should be false; Test result: false
+
+	http://.ca.test,+;
+		Should be false; Test result: true
+		Error!
+
+	ftp://ucalgary.ca/
+		Runtime error: java.lang.NoClassDefFoundError: Could not initialize class DomainValidator
+
+	http://.ninja.test,=;/
+		Should be false; Test result: true
+		Error!
+
+	h3tp://.ninja.test,=;/
+		Runtime error: java.lang.NoClassDefFoundError: Could not initialize class DomainValidator
+
+	://www.rottentomatoes.com
+		Should be false; Test result: false
+
+	http://WWW.AMAZON.com
+		Should be true; Test result: true
+
+	HTTP://www.utoronto.ca
+		Runtime error: java.lang.NoClassDefFoundError: Could not initialize class DomainValidator
+
+testManualTest_ALL_SCHEMES ENDS
+
+testManualTest_NO_FRAGMENTS STARTS
+
+	http://www.rottentomatoes.com
+		Should be true; Test result: false
+		Error!
+
+	http:/www.rottentomatoes.com
+		Should be false; Test result: false
+
+	://www.rottentomatoes.com
+		Should be false; Test result: false
+
+	http://www.rottentomatoes.au
+		Should be true; Test result: false
+		Error!
+
+	http://www.rottentomatoes~.com
+		Should be false; Test result: false
+
+	http://1.2.3.4.5
+		Should be false; Test result: false
+
+	http://www.rottentomatoes.com:-80
+		Should be false; Test result: false
+
+	ftp://ucalgary.ca
+		Should be true; Test result: false
+		Error!
+
+	HTTP://www.utoronto.ca
+		Should be true; Test result: false
+		Error!
+
+	http://www.MCGILL.ca
+		Should be true; Test result: false
+		Error!
+
+testManualTest_NO_FRAGMENTS ENDS
+
+testManualTest_LOCAL_URLS STARTS
+
+	/home/ubuntu/test
+		Should be false; Test result: false
+
+	http:/www.rottentomatoes.com
+		Should be false; Test result: false
+
+	://www.rottentomatoes.com
+		Should be false; Test result: false
+
+	http://www.rottentomatoes.au
+		Should be true; Test result: false
+		Error!
+
+	http://www.rottentomatoes~.com
+		Should be false; Test result: false
+
+	http://1.2.3.4.5
+		Should be false; Test result: false
+
+	http://www.rottentomatoes.com:-80
+		Should be false; Test result: false
+
+	ftp://ucalgary.ca
+		Should be true; Test result: false
+		Error!
+
+	file://home
+		Should be false; Test result: false
+
+	HTTP://www.uWATERloo.ca
+		Should be true; Test result: false
+		Error!
+
+testManualTest_LOCAL_URLS ENDS
+

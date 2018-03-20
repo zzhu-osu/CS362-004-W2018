@@ -1,3 +1,7 @@
-This is my assignment-5 submission.
+This is our team's Final Project Part-B submission.
 
-All the executables were generated under Ubuntu (Linux).
+Team Members:
+
+Zheng Zhu, 
+Drew Wolfe,
+Jonathan Grocott
